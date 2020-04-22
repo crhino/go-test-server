@@ -9,6 +9,7 @@ import (
 var port = flag.Int("port", 1234, "specify the port to listen on")
 
 func main() {
+	flag.Parse()
 	http.HandleFunc("/", HelloServer)
 	err := http.ListenAndServe(fmt.Sprintf(":%d", *port), nil)
 	if err != nil {
